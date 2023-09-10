@@ -1,5 +1,19 @@
+import { notFound } from 'next/navigation'
+import { Ticket } from "../TicketList"
+
 interface Props {
   params: {id: string}
+}
+
+export const dynamicParams = true
+
+export async function generateStaticParams() {
+  const res = await fetch('http://localhost:4000/tickets')
+  const tickets = await res.json()
+
+  return tickets.map((t: Ticket) => {
+    id: t.id
+  })
 }
 
 async function getTicket(id: string) {
@@ -8,6 +22,11 @@ async function getTicket(id: string) {
       revalidate: 60
     }
   })
+
+  if (!res.ok) {
+    notFound()
+  }
+
   return res.json()
 }
 

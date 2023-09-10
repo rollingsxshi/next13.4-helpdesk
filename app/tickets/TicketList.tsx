@@ -9,7 +9,7 @@ async function getTickets() {
   return res.json()
 }
 
-interface Ticket {
+export interface Ticket {
   id: string
   title: string
   body: string
