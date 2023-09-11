@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server"
 
+// next GET route handlers are static by default
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const res = await fetch('http://localhost:4000/tickets')
   const tickets = await res.json()
