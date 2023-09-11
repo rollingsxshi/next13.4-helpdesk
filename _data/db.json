@@ -34,6 +34,13 @@
       "priority": "medium",
       "user_email": "mario@netninja.dev",
       "id": "sUCNnMH"
+    },
+    {
+      "title": "Fix the footer links please",
+      "body": "Lorem ipsum Triforce sit amet, Linkus Hyruleus tempus Ganondorf. Nunc ocarina sagittis quis Majoras Mask.",
+      "priority": "low",
+      "user_email": "enaya@netninja.dev",
+      "id": "VVC3mbH"
     }
   ]
 }
