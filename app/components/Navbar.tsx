@@ -3,12 +3,10 @@ import Link from "next/link";
 import Logo from "./dojo-logo.png";
 import LogoutButton from "./LogoutButton";
 
-interface User {
-  email: string
-}
-
 interface Props {
-  user: User
+  user: {
+    email: string
+  }
 }
 
 const Navbar = ({ user }: Props) => {
@@ -24,7 +22,7 @@ const Navbar = ({ user }: Props) => {
       <h1>Dojo Helpdesk</h1>
       <Link href="/">Dashboard</Link>
       <Link href="/tickets" className="mr-auto">Tickets</Link>
-      
+
       {user && <span>Hello, { user.email }</span>}
       <LogoutButton />
     </nav>

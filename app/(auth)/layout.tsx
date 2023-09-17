@@ -1,10 +1,20 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import Link from "next/link"
+import { cookies } from 'next/headers'
+import { redirect } from "next/navigation"
 
-const AuthLayout = ({
+const AuthLayout = async ({
   children,
 }: {
   children: React.ReactNode
 }) => {
+  const supabase = createServerComponentClient({ cookies })
+  const { data } = await supabase.auth.getSession()
+
+  if (data.session) {
+    redirect('/')
+  }
+
   return (
     <>
       <nav>
